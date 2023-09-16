@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Exercise 7</title>
+    </head>
+
+    <body>
+
+        <input type="text" id="txt-price" placeholder="Enter the price of the item"> 
+        <input type="text" id="txt-quantity" placeholder="Enter the quanity of the item">
+        <button id="btn-submit">Calculate</button>
+        <div id="output"></div> 
+        <!--These 4 lines of code simply create the two input boxes and the button, as well as a 
+            place for the output to go. type=text shows that text will be entered, id='name' creates IDs 
+            so that each element can be referred back to, and the placeholder=text shows the text that is 
+            in the input boxes before the user enters anything. the 'elements' are literally HTMLElements, 
+            until they are later converted.
+        -->
+
+        <script> // creates a new JS script in which the backend code runs
+        var priceInput = document.getElementById('txt-price');
+        var quantityInput = document.getElementById('txt-quantity');
+        var submitBtn = document.getElementById('btn-submit');
+        var output = document.getElementById('output');  
+        /* these 4 lines create variables obtained from the 2 inputs, the button click, 
+            and the output that is later calculated. does not convert yet
+            */
+        submitBtn.addEventListener('click', function () { //adds an event listener of clicking the button to perform the actions in function() 
+            var price = priceInput.value; 
+            var quanity = quantityInput.value; //converts previously mentioned HTML elements into JS usable vars from the value of the HTML elements
+            price = +price;
+            quanity = +quanity; //sets the previously created vars to be equal to the int version of what they were before (string in this case)
+            if (Number.isNaN(price) || Number.isNaN(quanity)) { //checks if either var are not numbers, and returns Invalid if so
+                output.innerHTML = 'Invalid input';
+                return;
+            }
+            var totalPrice = price * quanity; //calculates total
+            totalPrice = Math.round(totalPrice * 100) / 100; //rounds total to 2 decimal places
+            output.innerHTML = quanity + ' items at $' + price + ' each is $' + totalPrice; //prints output. innerHTML calls the internal content of 'output'
+        });
+        </script>
+
+    </body>
+</html>
