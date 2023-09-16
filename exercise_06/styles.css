@@ -1,0 +1,13 @@
+.presets{
+    background-color: skyblue;
+    font-family: 'Courier New', Courier, monospace;
+}
+#main-title{
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    font-weight: bolder;
+}
+.content{
+    margin-bottom: 12px;
+}
